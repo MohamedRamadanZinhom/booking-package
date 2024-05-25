@@ -1,0 +1,3 @@
+[submodule "booking-package"]
+	path = booking-package
+	url = https://github.com/MohamedRamadanZinhom/booking-package.git
