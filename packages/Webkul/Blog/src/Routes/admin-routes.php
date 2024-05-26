@@ -3,6 +3,10 @@
 use Illuminate\Support\Facades\Route;
 use Webkul\Blog\Http\Controllers\Admin\CityController;
 use Webkul\Blog\Http\Controllers\Admin\DayController;
+use Webkul\Blog\Http\Controllers\Admin\ExceptionDateController;
+use Webkul\Blog\Http\Controllers\Admin\AvailableWorkingDayController;
+
+
 
 
 Route::group(['middleware' => ['web', 'admin'], 'prefix' => 'admin/blog'], function () {
@@ -20,5 +24,9 @@ Route::group(['middleware' => ['web', 'admin'], 'prefix' => 'admin/blog'], funct
     Route::get('/working-daies/edit/{id}', [DayController::class, 'edit'])->name('admin.days.edit');
     Route::put('/working-daies/update/{id}', [DayController::class, 'update'])->name('admin.days.update');
     Route::delete('/working-daies/delete/{id}', [DayController::class, 'delete'])->name('admin.days.delete');
+
+    Route::resource('exceptions', ExceptionDateController::class);
+
+    Route::resource('available-working-days', AvailableWorkingDayController::class);
 
 });
